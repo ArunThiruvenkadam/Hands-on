@@ -5,7 +5,7 @@ function validateLogin() {
 	var uName = document.forms["myForm"]["username"].value;
 	var pwd = document.forms["myForm"]["password"].value;
 	
-    if("arun@ofs" != uName || "pass" != pwd) {
+    if("arun@ofs" != uName || "password" != pwd) {
 		alert("Invalid Username/Password.");
         return false;
 	}
