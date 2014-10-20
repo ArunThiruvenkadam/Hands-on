@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./css/mybook.css">
+<script src="js/index.js"></script>
+</head>
+<body>
+<div id="header">
+	
+	<h1><img src="images/icon.jpg" width="50px" height="50px" align="center"> My Book</h1>
+</div>
+<div id="input">
+<form name="myForm" action="feed.html" onsubmit="return validateLogin()" method="post">
+	<input id="username" type="text" placeholder="username" pattern=".{1,8}" required title="Max 8 characters"/>
+	<input id="password" type="PASSWORD" placeholder="password" pattern=".{6,}" required title="6 characters minimum"/>
+	<input type="submit" value="Submit">
+</form>
+</div>
+</div>
+<div id="nav">
+<img id="img" src="images/e-learning.jpg" width="987px" height="618px">
+</div>
+
+<div id="footer">
+	Talent Improving Exercise, OFS
+</div>
+
+</body>
+</html>

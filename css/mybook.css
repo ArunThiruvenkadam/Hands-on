@@ -1,0 +1,34 @@
+#header {
+    background-color:#780000 ;
+    color:white;
+    text-align:left;
+	float:left;
+	height:75px;
+	width:830px;
+    padding:5px;
+}
+#input {
+    background-color:#780000 ;
+    color:white;
+    float:center-right;
+	width:auto;
+	padding-top:30px;
+	align:center;
+    height:75px;
+}
+#nav {
+    background-color:white;
+}
+
+#img {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
