@@ -21,6 +21,7 @@ var defaultBtnStatus = function() {
 	buttonHighlights("transparentButton2", "transparentButton3");
 	showAndHide("feed", "profile");
 	getFeeds();
+	displayFeeds();
 }
 
 function buttonHighlights(btnToHighlight, btnToTransparent) {
@@ -92,6 +93,12 @@ function getFeeds() {
 
 function displayFeeds() {
 	alert(feeds);
+	var listStr = "";
+	for (var i = 0; i < feeds.length; i++) {
+		var newli = document.createElement('li');
+		dcoument.getElementById("feedList").appendChild(newli);	
+	}
+	location.reload();
 }
 
 function validUrl(str) {
