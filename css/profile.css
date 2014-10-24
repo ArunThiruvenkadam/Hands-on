@@ -1,0 +1,14 @@
+#profileform {
+}
+
+#profileInfo {
+	padding-left:200px;
+	float:left;
+	width:300px;
+	height:auto;
+}
+#profileImage {
+	width:152px;
+	height:229px;
+	float:center-right;
+}

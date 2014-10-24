@@ -2,7 +2,9 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./css/feed.css">
+<link rel="stylesheet" type="text/css" href="./css/profile.css">
 <script src="js/feed.js"></script>
+<script src="js/profile.js"></script>
 </head>
 <body onload="new defaultBtnStatus()">
 <div id="header">
@@ -21,7 +23,7 @@
 <div id="feed">
 <h2>Feed</h2>
 <input type = "text" id="feedText">
-<input type = "button" id = "btnPost" value="Post" onClick="addFeed()"><input type = "button" id = "btnPost" value="Fetch" onClick="displayFeeds()">
+<input type = "button" id = "btnPost" value="Post" onClick="addFeed()">
 <br>
 <ul id="feedList" style="list-style-type:none">
 
@@ -29,6 +31,29 @@
 </div>
 <div id="profile">
 <h2>Profile</h2>
+<table style="width:100%">
+<tr><td>
+	<div id="profileInfo">
+		<form id="profileform">
+            <input  type="value" id="name" placeholder="Name"></input></br></br>
+            <input  type="number" id="age" placeholder="Age"></input></br></br>
+            <input  type="number" id="phoneno" placeholder="PhoneNo"></input></br></br>
+            <input  type="email" id="email" placeholder="Email"></input></br></br>
+            <textarea id="address"rows="5" cols="25"></textarea>
+            <input  type="hidden" id="image-value" name="selected_image" value="" /></br></br>
+            <input  type="file" id="imagefile" accept="image/*" onchange="showProfileImage(this)" name="file"></br></br>
+            <input  type="submit" name="button" id="button" value="Save" onClick="saveProfile()" />
+        </form>
+	</div>
+	</td>
+	<td>
+	<div id="profileImageLayout">
+        <img id="profileImage"/>
+    </div>
+	</td>
+</tr>
+</table>
+
 </div>
 
 <div id="footer">

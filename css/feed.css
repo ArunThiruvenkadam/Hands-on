@@ -31,10 +31,15 @@
     float:left;
     padding:10px;	 	 
 }
-#item{
+#textitem{
 	width:800px;
 	height:auto;
-	background-color:yellow;
+	background-color:#CCFF33;
+}
+#urlitem{
+	width:800px;
+	height:auto;
+	background-color:#66FFFF;
 }
 #profile {
     width:350px;

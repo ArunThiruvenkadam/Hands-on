@@ -22,6 +22,7 @@ var defaultBtnStatus = function() {
 	showAndHide("feed", "profile");
 	getFeeds();
 	displayFeeds();
+	displayProfile();
 }
 
 function buttonHighlights(btnToHighlight, btnToTransparent) {
@@ -66,11 +67,12 @@ function addFeed() {
 	var detailFeed = undefined;
 	if (validUrl(feedValue)) {
 		// URL FEED
-		alert("URL Feed");
-		detailFeed = Object.create(feed(count, "url", dateAndTime));
+		
+		var feed = new Feed(count, "url", dateAndTime)
+		detailFeed = Object.create(feed);
 	} else {
 		// Text Feed
-		alert("Text Feed");
+		
 		var feed = new Feed(count, "text", dateAndTime);
 		detailFeed = Object.create(feed);
 	}
@@ -79,26 +81,60 @@ function addFeed() {
 }
 
 function createFeed(feed) {
-	alert("Feed added successfully");
+
 	feeds = feeds || [];
 	feeds.push(feed);
-	alert(feeds);
-	localStorage.feeds= feeds;
+	document.getElementById("feedText").value = ""; 
+	displayFeeds();
 }
 
 function getFeeds() {
-	feeds = feeds || localStorage.feeds || [];
-	return localStorage.feeds;
+	feeds = feeds || [];
+}
+
+function deleteFeed(id) {
+	
+	feeds.splice(id, 1);
+	displayFeeds();
 }
 
 function displayFeeds() {
-	alert(feeds);
+	
 	var listStr = "";
-	for (var i = 0; i < feeds.length; i++) {
-		var newli = document.createElement('li');
-		dcoument.getElementById("feedList").appendChild(newli);	
+	if(feeds.length == 0) {
+		document.getElementById("feedList").innerHTML = "";
+		return;
 	}
-	location.reload();
+	for (var i = 0; i < feeds.length; i++) {
+			var currentFeed = feeds[i];
+			var listStartTag = "<li>";
+			if (currentFeed._type == "text") {
+				var divStartTag = "<div id=\"textitem\">";
+			} else {
+				var divStartTag = "<div id=\"urlitem\">";
+			}
+			var userImageTag = "<img src=\"images\/user.jpg\" id=\"userImage\" align=\"center\">";
+			var feedValuesTag = "";
+			if (currentFeed._type == "text") {
+				feedValuesTag = "<label id=\"feedValues\">"+currentFeed.content+"</label>";
+			} else {
+				feedValuesTag = "<label id=\"feedValues\" onClick=\"navigateTo( "+i+" )\">"+currentFeed.content+"</label>"; 
+			}
+			var closeBtmTag = "<img src=\"images\/delete.jpg\" id=\"closeBtn\" onClick=\" deleteFeed("+ i +")\">";		
+			var timeTag = "<label id=\"feedTime\">"+"10/21/2014 12:30 pm"+"</label>";
+			var divEndTag = "</div>";
+			var listEndTag = "</li>";
+			var listItem = listStartTag + divStartTag + userImageTag + feedValuesTag + closeBtmTag + timeTag + divEndTag + listEndTag;
+			listStr += listItem;
+	
+			document.getElementById("feedList").innerHTML = listStr;
+	} 
+}
+
+function navigateTo(i) {
+	
+	var selectedFeed = feeds[i];
+	window.open(selectedFeed.content, "_blank");
 }
 
 function validUrl(str) {
