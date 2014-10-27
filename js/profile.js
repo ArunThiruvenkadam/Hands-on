@@ -20,6 +20,34 @@
     }
 
 function saveProfile() {
+	
+	var errStr = "";
+	if(document.getElementById("name").value == "" || document.getElementById("name").value == null) {
+		errStr += "Name should not be empty\n";
+	} 
+	if(document.getElementById("age").value == "") {
+		errStr += "Age should not be empty\n";
+	} 
+	if(parseInt(document.getElementById("age").value) < 0 || parseInt(document.getElementById("age").value) > 100) {
+		errStr += "Age should be between 1 to 100\n";
+	} 
+	if(document.getElementById("phoneno").value == "") {
+		errStr += "Phone no should not be empty\n";
+	} 
+	if(document.getElementById("email").value == "") {
+		errStr += "Email should not be empty\n";
+	} 
+	if(document.getElementById("address").value == "") {
+		errStr += "Address should not be empty\n";
+	} 
+	if(document.getElementById("imagefile").value == "") {
+		errStr += "ImageFile should not be empty\n";
+	}
+	
+	if(errStr.length > 0) {
+		alert(errStr);
+		return false;
+	}
 	var user = new User(document.getElementById("name").value,
 						document.getElementById("age").value,
 						document.getElementById("phoneno").value,
@@ -27,6 +55,7 @@ function saveProfile() {
 						document.getElementById("address").value,
 						document.getElementById("imagefile").value);
 	localStorage.setItem("profile", JSON.stringify(user));
+	return true;
 }
 
 function displayProfile() {

@@ -34,15 +34,15 @@
 <table style="width:100%">
 <tr><td>
 	<div id="profileInfo">
-		<form id="profileform">
-            <input  type="value" id="name" placeholder="Name"></input></br></br>
-            <input  type="number" id="age" placeholder="Age"></input></br></br>
-            <input  type="number" id="phoneno" placeholder="PhoneNo"></input></br></br>
-            <input  type="email" id="email" placeholder="Email"></input></br></br>
-            <textarea id="address"rows="5" cols="25"></textarea>
+		<form id="profileform" onsubmit="return saveProfile()" method="post">
+            <input  type="value" id="name" placeholder="Name" maxlength=50></input>*</br></br>
+            <input  type="number" id="age" placeholder="Age"></input>*</br></br>
+            <input  type="number" id="phoneno" placeholder="PhoneNo"></input>*</br></br>
+            <input  type="email" id="email" placeholder="Email"></input>*</br></br>
+            <textarea id="address"rows="5" cols="25"></textarea>*
             <input  type="hidden" id="image-value" name="selected_image" value="" /></br></br>
-            <input  type="file" id="imagefile" accept="image/*" onchange="showProfileImage(this)" name="file"></br></br>
-            <input  type="submit" name="button" id="button" value="Save" onClick="saveProfile()" />
+            <input  type="file" id="imagefile" accept="image/*" onchange="showProfileImage(this)" name="file">*</br></br>
+            <input  type="submit" value="Save" />
         </form>
 	</div>
 	</td>
