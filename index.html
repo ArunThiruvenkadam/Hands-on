@@ -11,8 +11,8 @@
 </div>
 <div id="input">
 <form name="myForm" action="feed.html" onsubmit="return validateLogin()" method="post">
-	<input id="username" type="text" placeholder="username" pattern=".{1,8}" required title="Max 8 characters"/>
-	<input id="password" type="PASSWORD" placeholder="password" pattern=".{6,}" required title="6 characters minimum"/>
+	<input id="username" type="text" placeholder="username" maxlength=8/>
+	<input id="password" type="PASSWORD" placeholder="password" />
 	<input type="submit" value="Submit">
 </form>
 </div>
